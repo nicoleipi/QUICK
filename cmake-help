@@ -1,0 +1,182 @@
+#!/bin/sh
+
+echo  "                                                                                                                                                             
+
+Usage
+
+  cmake [options] <path-to-source>
+  cmake [options] <path-to-existing-build>
+  cmake [options] -S <path-to-source> -B <path-to-build>
+
+Specify a source directory to (re-)generate a build system for it in the
+current working directory.  Specify an existing build directory to
+re-generate its build system.
+
+Options
+  -S <path-to-source>          = Explicitly specify a source directory.
+  -B <path-to-build>           = Explicitly specify a build directory.
+  -C <initial-cache>           = Pre-load a script to populate the cache.
+  -D <var>[:<type>]=<value>    = Create or update a cmake cache entry.
+  -U <globbing_expr>           = Remove matching entries from CMake cache.
+  -G <generator-name>          = Specify a build system generator.
+  -T <toolset-name>            = Specify toolset name if supported by
+                                 generator.
+  -A <platform-name>           = Specify platform name if supported by
+                                 generator.
+  -Wdev                        = Enable developer warnings.
+  -Wno-dev                     = Suppress developer warnings.
+  -Werror=dev                  = Make developer warnings errors.
+  -Wno-error=dev               = Make developer warnings not errors.
+  -Wdeprecated                 = Enable deprecation warnings.
+  -Wno-deprecated              = Suppress deprecation warnings.
+  -Werror=deprecated           = Make deprecated macro and function warnings
+                                 errors.
+  -Wno-error=deprecated        = Make deprecated macro and function warnings
+                                 not errors.
+  -E                           = CMake command mode.
+  -L[A][H]                     = List non-advanced cached variables.
+  --build <dir>                = Build a CMake-generated project binary tree.
+  --install <dir>              = Install a CMake-generated project binary
+                                 tree.
+  --open <dir>                 = Open generated project in the associated
+                                 application.
+  -N                           = View mode only.
+  -P <file>                    = Process script mode.
+  --find-package               = Run in pkg-config like mode.
+  --graphviz=[file]            = Generate graphviz of dependencies, see
+                                 CMakeGraphVizOptions.cmake for more.
+  --system-information [file]  = Dump information about this system.
+  --log-level=<ERROR|WARNING|NOTICE|STATUS|VERBOSE|DEBUG|TRACE>
+                               = Set the verbosity of messages from CMake
+                                 files.  --loglevel is also accepted for
+                                 backward compatibility reasons.
+  --log-context                = Prepend log messages with context, if given
+  --debug-trycompile           = Do not delete the try_compile build tree.
+                                 Only useful on one try_compile at a time.
+  --debug-output               = Put cmake in a debug mode.
+  --debug-find                 = Put cmake find in a debug mode.
+  --trace                      = Put cmake in trace mode.
+  --trace-expand               = Put cmake in trace mode with variable
+                                 expansion.
+  --trace-format=<human|json-v1>
+                               = Set the output format of the trace.
+  --trace-source=<file>        = Trace only this CMake file/module.  Multiple
+                                 options allowed.
+  --trace-redirect=<file>      = Redirect trace output to a file instead of
+                                 stderr.
+  --warn-uninitialized         = Warn about uninitialized values.
+  --warn-unused-vars           = Warn about unused variables.
+  --no-warn-unused-cli         = Don't warn about command line options.
+  --check-system-vars          = Find problems with variable usage in system
+                                 files.
+  --profiling-format=<fmt>     = Output data for profiling CMake scripts.
+                                 Supported formats: google-trace
+  --profiling-output=<file>    = Select an output path for the profiling data
+                                 enabled through --profiling-format.
+  --help,-help,-usage,-h,-H,/? = Print usage information and exit.
+  --version,-version,/V [<f>]  = Print version number and exit.
+  --help-full [<f>]            = Print all help manuals and exit.
+  --help-manual <man> [<f>]    = Print one help manual and exit.
+  --help-manual-list [<f>]     = List help manuals available and exit.
+  --help-command <cmd> [<f>]   = Print help for one command and exit.
+  --help-command-list [<f>]    = List commands with help available and exit.
+  --help-commands [<f>]        = Print cmake-commands manual and exit.
+  --help-module <mod> [<f>]    = Print help for one module and exit.
+  --help-module-list [<f>]     = List modules with help available and exit.
+  --help-modules [<f>]         = Print cmake-modules manual and exit.
+  --help-policy <cmp> [<f>]    = Print help for one policy and exit.
+  --help-policy-list [<f>]     = List policies with help available and exit.
+  --help-policies [<f>]        = Print cmake-policies manual and exit.
+  --help-property <prop> [<f>] = Print help for one property and exit.
+  --help-property-list [<f>]   = List properties with help available and
+                                 exit.
+  --help-properties [<f>]      = Print cmake-properties manual and exit.
+  --help-variable var [<f>]    = Print help for one variable and exit.
+  --help-variable-list [<f>]   = List variables with help available and exit.
+  --help-variables [<f>]       = Print cmake-variables manual and exit.
+
+Generators
+
+The following generators are available on this platform (* marks default):
+* Unix Makefiles               = Generates standard UNIX makefiles.
+  Green Hills MULTI            = Generates Green Hills MULTI files
+                                 (experimental, work-in-progress).
+  Ninja                        = Generates build.ninja files.
+  Ninja Multi-Config           = Generates build-<Config>.ninja files.
+  Watcom WMake                 = Generates Watcom WMake makefiles.
+  CodeBlocks - Ninja           = Generates CodeBlocks project files.
+  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+  CodeLite - Ninja             = Generates CodeLite project files.
+  CodeLite - Unix Makefiles    = Generates CodeLite project files.
+  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+  Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+  Kate - Ninja                 = Generates Kate project files.
+  Kate - Unix Makefiles        = Generates Kate project files.
+  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+
+CMake installation requires at least CMake/3.9.0 installed in the target machine.
+
+Like all CMake options, these options are sticky. Once passed to CMake, they 
+will remain set unless you set them to a different value (with -D), unset 
+them (with -U), or delete the build directory.      
+
+  QUICK General Options                                                     
+      -DCOMPILER               = Allows selection of the toolchain to use.                 
+      -DCOMPILER=AUTO          = To use CMake default behavior 
+                                 Run CMake with no arguments to see the list 
+                                 of options.                              
+      -DNOF=TRUE               = Disables the compilation of time consuming 
+                                 f functions in the ERI code of cuda version. 
+                                 Not recommended for production.                           
+      -DCMAKE_BUILD_TYPE=<Debug|Release>         
+                               = Controls whether to build with debugging 
+                                 symbols (Debug) or not (Release).
+      -DOPTIMIZE=<TRUE|FALSE>      
+                               = Controls whether to enable compiler optimizations. 
+                                 On by default.
+      -DCMAKE_INSTALL_PREFIX=...        
+                               = Controls where QUICK will be installed when you 
+                                 run "make install"                                 
+      -DQUICK_DEBUG=TRUE       = Compiles a debug version of QUICK with extra prints 
+                                 enabled.
+      -DQUICK_DEBUG_TIME=TRUE  = Compiles a debug version of QUICK that reports more 
+                                 information on timing.
+
+  External Library Control
+  QUICK will use all external libraries that it can find (and which appear to work) 
+  on the system. These options allow you do adjust this behavior.
+      -DFORCE_INTERNAL_LIBS=blas                                           
+                               = Forces use of the internal BLAS library even if a 
+                                 system one is available.                                      
+      -DFORCE_DISABLE_LIBS=mkl = Disable use of system MKL to replace BLAS and LAPACK.            
+      -DCMAKE_PREFIX_PATH=<path>          
+                               = Use the given path as a prefix where dependencies are 
+                                 installed. Libraries and headers will be searched for 
+                                 in <path>/lib and <path>/include.
+      -DMKL_HOME=...           = Look for Intel MKL in the given directory. The 
+                                 environment variable MKL_HOME is also searched.
+
+  QUICK Parallel Versions
+  By default QUICK will only build the serial version. This can be changed with these 
+  options:
+      -DMPI=TRUE               = Also build MPI versions of all programs
+      -DCUDA=TRUE              = Also build CUDA versions of all programs.  If both MPI 
+                                 and CUDA are active at the same time, CUDA MPI versions 
+                                 will additionally be built.  
+      -DQUICK_USER_ARCH=<kepler|maxwell|pascal|volta|turing|ampere>          
+                               = Build CUDA code only for the given architecture.  If 
+                                 not provided, QUICK will compile for all supported 
+                                 architectures in your CUDA version.
+      -DQUICK_VERBOSE_PTXAS=TRUE         
+                               = Pass -v flag to ptxas to dump details about compiled 
+                                 functions in CUDA code
+
+  For example, serial version with GNU compiler tool chain can be compiled for Nvidia Volta 
+  microarchitecture as follows:
+        cmake .. -DCOMPILER=GNU -DMPI=TRUE -DCUDA=TRUE -DQUICK_USER_ARCH=volta \
+        -DCMAKE_INSTALL_PREFIX=$\{QUICK_INSTALL}
+  "
+
+exit 0;
