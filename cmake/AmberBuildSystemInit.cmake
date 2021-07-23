@@ -21,7 +21,7 @@ message(STATUS "CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${C
 message(STATUS "This build system is derived from Amber's build system. For how to use this build system, please read this wiki:")
 message(STATUS "    http://ambermd.org/pmwiki/pmwiki.php/Main/CMake")
 message(STATUS "For a list of important CMake variables, check here:")
-message(STATUS "    http://ambermd.org/pmwiki/pmwiki.php/Main/CMake-Common-Options")
+message(STATUS "    https://quick-docs.readthedocs.io/en/latest/cmake-options.html")
 message(STATUS "**************************************************************************")
 
 # fix search path so that libraries from the install tree are not used
