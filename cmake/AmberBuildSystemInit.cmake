@@ -67,7 +67,7 @@ include(AmberCompilerConfig)
 #control default build type.
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-set(CMAKE_CONFIGURATION_TYPES "DEBUG;RELEASE" CACHE STRING "Allowed build types for Amber.  This only controls debugging flags, set the OPTIMIZE variable to control compiler optimizations." FORCE)
+set(CMAKE_CONFIGURATION_TYPES "DEBUG;RELEASE" CACHE STRING "Allowed build types for QUICK.  This only controls debugging flags, set the OPTIMIZE variable to control compiler optimizations." FORCE)
 if("${CMAKE_BUILD_TYPE}" STREQUAL "")
 	set(CMAKE_BUILD_TYPE RELEASE CACHE STRING "Type of build.  Controls debugging information and optimizations." FORCE)
 endif()
