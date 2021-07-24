@@ -20,8 +20,9 @@ message(STATUS "Starting configuration of ${PROJECT_NAME} version ${${PROJECT_NA
 message(STATUS "CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION}")
 message(STATUS "This build system is derived from Amber's build system. For how to use this build system, please read this wiki:")
 message(STATUS "    http://ambermd.org/pmwiki/pmwiki.php/Main/CMake")
-message(STATUS "For a list of important CMake variables, check here:")
+message(STATUS "For a list of QUICK CMake options, check here:")
 message(STATUS "    https://quick-docs.readthedocs.io/en/latest/cmake-options.html")
+message(STATUS "For a list of general CMake options, run `cmake --help`")
 message(STATUS "**************************************************************************")
 
 # fix search path so that libraries from the install tree are not used
