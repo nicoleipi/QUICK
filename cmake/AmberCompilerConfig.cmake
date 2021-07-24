@@ -23,7 +23,7 @@ set(COMPILER_HELP "
 
 
 #create actual option
-set(COMPILER "" CACHE STRING "Compiler to build Amber with.  Valid values: GNU, INTEL, PGI, CRAY, CLANG, MSVC, AUTO, MANUAL.  If 'auto', autodetect the host compiler, or use the CC,CXX,and FC variables if they are set.
+set(COMPILER "" CACHE STRING "Compiler to build QUICK with.  Valid values: GNU, INTEL, PGI, CRAY, CLANG, MSVC, AUTO, MANUAL.  If 'auto', autodetect the host compiler, or use the CC,CXX,and FC variables if they are set.
  This option can ONLY be set the first time CMake is run.  If you want to change it, delete the build directory and start over.")
  
 set(COMPILER_VALID FALSE)
@@ -45,7 +45,7 @@ if(NOT COMPILER_VALID)
 	message(STATUS "Error: Please select the compiler you want ${PROJECT_NAME} to use by setting the COMPILER CMake vairable to one of the below:")
 	message(STATUS ${COMPILER_HELP})
 	message(STATUS "")
-	message(FATAL_ERROR "Amber cannot build until COMPILER is set properly.")
+	message(FATAL_ERROR "QUICK cannot build until COMPILER is set properly.")
 endif()
 
 # handle cross-compilation
