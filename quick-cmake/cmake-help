@@ -24,7 +24,7 @@ them (with -U), or delete the build directory.
                                  On by default.
       -DCMAKE_INSTALL_PREFIX=...        
                                = Controls where QUICK will be installed when you 
-                                 run "make install"                                 
+                                 run 'make install'                                 
       -DQUICK_DEBUG=TRUE       = Compiles a debug version of QUICK with extra prints 
                                  enabled.
       -DQUICK_DEBUG_TIME=TRUE  = Compiles a debug version of QUICK that reports more 
